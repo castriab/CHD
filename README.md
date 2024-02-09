@@ -49,15 +49,15 @@ A Makefile is more than documentation. Using the tool make (included in the Dock
 Consider this snippet from the Makefile included in this project:
 
 ```
-# Data cleaning 
-derived_data/cleaned_data.csv: .created-dirs code/data_cleaning.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
-	Rscript code/data_cleaning.R
+	# Make figures for report
+figures/CHD_distribution.png: .created-dirs source_data/places_nomissing.csv code/CHD_distribution.R
+	Rscript code/CHD_distribution.R
 ```
 The lines with `#` are comments which describe the target. 
-Here we describe an artifact (`derived_data/cleaned_data.csv`), its dependencies (`.created-dirs`, `code/data_cleaning.R`, `source_data/CDC_Drug_Overdose_Deaths.csv`, `source_data/SSP_Data.csv`) and how to build it Rscript `code/data_cleaning.R`. If we invoke Make like so:
+Here we describe an artifact (`figures/CHD_distribution.png`), its dependencies (`.created-dirs`, `source_data/places_nomissing.csv`, `code/CHD_distribution.R`) and how to build it Rscript `code/CHD_distribution.R`. If we invoke Make like so:
 
 ```
-make derived_data/cleaned_data.csv
+make figures/CHD_distribution.png
 ```
 
 Make will construct this artifact for us. If a dependency does not exist for some reason it will also construct that artifact on the way. 
@@ -67,7 +67,7 @@ Make will construct this artifact for us. If a dependency does not exist for som
 In order to generate the final report, use the following command. Ensure that you are in the `work` directory while running this command.
 
 ```
-make report.html
+make Report.html
 ```
 
 
