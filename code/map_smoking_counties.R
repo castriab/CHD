@@ -6,6 +6,7 @@ library(grid)
 library(maps)
 library(ggthemes)
 library(scales)
+library(mapproj)
 
 places <- read_csv("source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
 nc_map <- tbl_df(map_data("county", region = "north carolina"))
