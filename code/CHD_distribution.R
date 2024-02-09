@@ -12,7 +12,7 @@ ggplot(places, aes(x = CHD)) +
   labs(
     title = "Distribution of Coronary Heart Disease Prevalence in North Carolina",
     subtitle = "N = 2153",
-    x = "CHD Prevalence",
+    x = "CHD Prevalence (%)",
     y = "Frequency"
   ) +
   theme(
