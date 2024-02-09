@@ -14,3 +14,5 @@ RUN R -e "install.packages(\"ggplot2\")"
 RUN R -e "install.packages(\"dplyr\")"
 RUN R -e "install.packages(\"ggthemes\")"
 RUN R -e "install.packages(\"scales\")"
+RUN R -e "install.packages(\"grid\")"
+
