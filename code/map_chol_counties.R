@@ -7,7 +7,7 @@ library(maps)
 library(ggthemes)
 library(scales)
 
-places <- read_csv("work/source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
+places <- read_csv("source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
 nc_map <- tbl_df(map_data("county", region = "north carolina"))
 
 places$CountyName <- tolower(places$CountyName)
@@ -71,7 +71,7 @@ ggplot(data = mapdata) +
   theme(legend.title=element_text(size=10),
         legend.text=element_text(size=10)) 
 
-ggsave(filename = "work/figures/nc_cholscreen_map.png", 
+ggsave(filename = "figures/nc_cholscreen_map.png", 
        width = 10,  
        height = 6, 
        units = "in")  

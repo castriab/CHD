@@ -6,7 +6,7 @@ library(ggplot2)
 library(scales)
 library(kableExtra)
 
-places <- read_csv("work/source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
+places <- read_csv("source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
 
 # find highest CHD census tracts and make a df 
 sorted_data <- places[order(-places$CHD), ]
@@ -39,13 +39,11 @@ top_table <- highest_counties %>%
   kable("html") %>%
   kable_styling(full_width = FALSE) %>%
   add_header_above(c("Highest 5 Census Tracts by CHD Prevalence (%)" = 3), 
-                   align = "center") %>%
-  cat(., file = "work/figures/low_chd_table.html")
+                   align = "center") 
 print(top_table)
 
 low_table <- lowest_counties %>%
   kable("html") %>%
   kable_styling(full_width = FALSE) %>%
-  add_header_above(c("Lowest 5 Census Tracts by CHD Prevalence (%)" = 3), align = "center")  %>%
-  cat(., file = "work/figures/low_chd_table.html")
+  add_header_above(c("Lowest 5 Census Tracts by CHD Prevalence (%)" = 3), align = "center")  
 print(low_table)

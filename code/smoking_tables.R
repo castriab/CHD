@@ -6,7 +6,7 @@ library(ggplot2)
 library(scales)
 library(kableExtra)
 
-places <- read_csv("work/source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
+places <- read_csv("source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
 
 # find highest smoking census tracts and make a df with that information
 sorted_data <- places[order(-places$CSMOKING), ]

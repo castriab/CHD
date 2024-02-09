@@ -2,7 +2,7 @@ library(tidyverse)
 library(readr)
 library(ggplot2)
 
-places <- read_csv("work/source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
+places <- read_csv("source_data/places_nomissing.csv", locale = locale(encoding = "latin1"))
 
 
 # Create a histogram
@@ -23,7 +23,7 @@ ggplot(places, aes(x = CHD)) +
     axis.text = element_text(size = 12),
   )
 
-ggsave(filename = "work/figures/CHD_distribution.png", 
+ggsave(filename = "figures/CHD_distribution.png", 
        width = 10,  
        height = 8, 
        units = "in")  
