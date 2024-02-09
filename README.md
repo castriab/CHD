@@ -49,7 +49,7 @@ A Makefile is more than documentation. Using the tool make (included in the Dock
 Consider this snippet from the Makefile included in this project:
 
 ```
-	# Make figures for report
+# Make figures for report
 figures/CHD_distribution.png: .created-dirs source_data/places_nomissing.csv code/CHD_distribution.R
 	Rscript code/CHD_distribution.R
 ```
