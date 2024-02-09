@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
+
 I am investigating Coronary Heart Disease (CHD) prevalence rates in North Carolina. On a census tract level, are health behaviors and use of prevention services associated with CHD prevalence? Census tracts are a geographical unit that divide the entire state with complete geographic coverage 1. North Carolina has only 100 counties, but 2195 census tracts, allowing for a large sample size and greater power 2.  They are also beneficial due to their increased specificity and infrequent boundary changes. This analysis is ecological, with conclusions drawn at the census-tract level.
 
 To answer the research question, I used PLACES 2022 data release from the CDC 3. This dataset includes gata gathered from the 2020 Behavioral Risk Factor Surveillance System (BRFSS), the 2010 census, and American Community Survey 2015–2019. The Behavioral Risk Factor Surveillance System is an annual telephone survey of the adult population (aged ≥18 years) of the 50 states, DC, and US territories. BRFSS completes more than 400,000 adult interviews each year and it is the largest continuously conducted health survey system in the world. The dataset includes estimates for 29 measures of health-related data including health outcomes, use of preventative services, health risk behaviors, and health status. For the analysis, I looked more in depth at prevalence of health risk behaviors and prevention measures among adults as possible predictors of CHD prevalence rate.
@@ -16,6 +17,7 @@ To answer the research question, I used PLACES 2022 data release from the CDC 3.
 For this analysis, I began with a full model including 14 covariates with CHD prevalence (as a percentage of census-tract population) as the response variable. All covariates are estimated crude prevalence of health risk behaviors and prevention measures, in units of percentages. The analysis plan includes establishing the full model, evaluating the descriptive statistics of its variables, and a preliminary check of the assumptions to determine if transformation is necessary. Then, I perform a backwards stepwise selection at the 0.05 level to reduce the model and evaluate for collinearity using  VIF values to further reduce and finalize the model. In the final model, I rechecked our assumptions and looked at our p-value, F-statistic, and R2 value to determine the significance of the model and how well the covariates can predict CHD prevalence at the census-tract level.
 
 # Background
+
 About 610,000 people die of heart disease in the United States every year and heart disease is the leading cause of death for both men and women. Coronary heart disease  is the most common type of heart disease, 20.5 million U.S. adults have coronary artery disease. CHD is also the deadliest form of heart disease, killing over 370,000 annually in the United States 4. The average CHD prevalence in the United States is 7%; 8.3% for men and 6.1% for women.
 
 CHD is often caused by cholesterol, a waxy substance that builds up inside the lining of the coronary arteries, forming plaque. This plaque buildup can partially or totally block blood flow in the large arteries of the heart (the most common cause of a heart attack). While symptoms of CHD vary from person to person, many individuals do not have any symptoms. This makes CHD particularly dangerous since many individuals do not know they have coronary heart disease until they have chest pain, a heart attack (blood flow to the heart is blocked), or go into cardiac arrest (the heart suddenly stops pumping blood). 
@@ -25,6 +27,7 @@ For most people, CHD is preventable with healthy lifestyles and medication. A he
 # Variables of Interest
 
 ### Outcome Variable
+
 **Crude Coronary Heart Disease Prevalence (%)**
 
   - Among adults aged ≥18 years
@@ -77,6 +80,7 @@ I first checked the distribution of the Coronary Heart Disease Prevalence variab
 Next, I looked at the correlation matrix of my selected variables so see if there were any potentially correlations variables. There seems to be a lot of correlation and there is potentially issues with multicollinearity that may need to be addressed. 
 
 ![Correlation Matrix](./figures/correlation_matrix.png) 
+
 I also created a map of North Carolina, with the average CHD prevalence of each county displayed. I then overlaid the five census tracts that had the highest coronary heart disease prevalences and the five with the lowest prevalences. The table with the these census tracts is also desplayed below. The census tracts with the highest CHD prevalence are in Carteret, Lenior, Henderson, Warren, and Wilson counties. The CHD prevelance of the census tract in Carteret is 12.5%, more than 5% higher than the national average. The census tracts with the lowest CHD prevalence are in Orange, Craven, Onslow, and Cumberland counties. The CHD prevelance of the census tract in Carteret is 0.9%. 
 
 ![NC CHD Map](./figures/nc_chd_prevalence_map.png) 
@@ -84,6 +88,7 @@ I also created a map of North Carolina, with the average CHD prevalence of each 
 ![High CHD NC](./sas_figures/high_chd_table.png) 
 
 ![Low CHD NC](./sas_figures/low_chd_table.png)
+
 
 
 From my background research, I know that medical and public health professionals recommended a healthy lifestyle that included not smoking. I also know that CHD is often caused by cholesterol. Thus, I compared the CHD prevalences map of North Carolina to two new maps, one of cholesterol screening prevalences and one of current smoking prevalences. You can see from the overlaid census tracts on these maps that there is some overlap. In particular, Lenior and Wilson counties had some of the highest prevalences for both CHD and smoking. Additionally, one of the Onslow census tracts had one of the lowest prevalences for both CHD and cholesterol screening. 
