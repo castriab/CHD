@@ -32,7 +32,7 @@ docker run -v $(pwd):/home/rstudio/work -e PASSWORD=yourpassword --rm -p 8787:87
 If you are running Windows Powershell you may need to use this code instead
 
 ```
-docker run -v ${PWD}:/home/rstudio/workk -e PASSWORD=yourpassword --rm -p 8787:8787 chd
+docker run -v ${PWD}:/home/rstudio/work -e PASSWORD=yourpassword --rm -p 8787:8787 chd
 ```
 
 Now you are able to log in to a locally hosted RStudio server. Open your web browser and navigate to http://localhost:8787 . Then, log on with the username `rstudio` and password `yourpassword`.
